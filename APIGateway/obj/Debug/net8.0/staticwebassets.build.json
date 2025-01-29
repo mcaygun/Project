@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "Hash": "o0eahmHv4u2hnzIdycdf5MzvVs8i87qASXciEc0HpKc=",
+  "Source": "APIGateway",
+  "BasePath": "_content/APIGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\cemal\\source\\repos\\Entegrasyon\\ImageServices\\ImageServices.csproj",
+      "Version": 2,
+      "Source": "ImageServices",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\noty.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "noty.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\noty.js"
+    },
+    {
+      "Identity": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\toastr.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "toastr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\cemal\\.nuget\\packages\\ntoastnotify\\8.0.0\\staticwebassets\\toastr.js"
+    }
+  ]
+}

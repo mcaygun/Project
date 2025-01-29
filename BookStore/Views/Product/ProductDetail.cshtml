@@ -1,0 +1,35 @@
+﻿@using BookStore.Data.Entities
+
+@model Product
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImagePath" alt="@Model.Name" class="img-fluid" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.Name</h1>
+            <p>@Model.Description</p>
+            <p><strong>Fiyat: </strong>  @Model.Price₺</p>
+            <p><strong>Stok Durumu: </strong> @Model.Stock adet</p>
+
+           
+            <p>
+                <strong>Yazar: </strong>
+                <a href="/Product?authorNames=@Model.Author.Name.Replace(" ", "+")">
+                    @Model.Author?.Name
+                </a>
+            </p>
+
+           
+            <p>
+                <strong>Kategori: </strong>
+                <a href="/Product?categoryNames=@Model.Category.Name.Replace(" ", "+")">
+                    @Model.Category?.Name
+                </a>
+            </p>
+
+            <a href="#" class="btn btn-primary">Sepete Ekle</a>
+        </div>
+    </div>
+</div>

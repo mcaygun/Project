@@ -1,0 +1,127 @@
+﻿@using BookStore.Data.ViewModels.Products
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ProductFilterViewModel
+
+<div class="container">
+    <div class="row">
+        <!-- SOL tarafta filtreleme bölümü -->
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Kategori</h5>
+                    <form method="get" action="@Url.Action("Index", "Product")" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            @foreach (var category in Model.Categories)
+                            {
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           name="categoryNames"
+                                           value="@category.Name"
+                                           id="category@category.Id">
+                                    <label class="form-check-label" for="category@category.Id">
+                                        @category.Name
+                                    </label>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Yazar</h5>
+                                <div class="mb-4">
+                                    @foreach (var author in Model.Authors)
+                                    {
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input"
+                                                   type="checkbox"
+                                                   name="authorNames"
+                                                   value="@author.Name"
+                                                   id="author@author.Id">
+                                            <label class="form-check-label" for="author@author.Id">
+                                                @author.Name
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary w-100 py-2 mb-2">
+                            Filtrele
+                        </button>
+                        <button asp-controller="Product" asp-action="add"
+                                type="submit"
+                                class="btn btn-outline-primary w-100 py-2 mb-2">
+                            Ürün Ekleme
+                        </button>
+                        <button asp-controller="Product" asp-action="GetAllProduct"
+                                type="submit"
+                                class="btn btn-outline-primary w-100 py-2">
+                            Ürün Düzenleme
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /SOL -->
+        <!-- SAĞ tarafta ürün listesi -->
+        <div class="col-md-9">
+            <div class="row">
+                @foreach (var product in Model.Products.Take(100))
+                {
+                    <div class="col-md-3 mb-4">
+                        <!-- Kart: Yükseklik doldurmak için flex-column ve h-100 -->
+                        <div class="card h-100 d-flex flex-column shadow-sm">
+                            <!-- Ürün görseli (sabit yüksekliğe alınırsa hizalama kolaylaşır) -->
+                            <img src="@product.ImagePath"
+                                 alt="Ürün Resmi"
+                                 class="card-img-top"
+                                 style="height: 200px; object-fit: cover;">
+
+                            <!-- Kart gövdesi: yine flex-column -->
+                            <div class="card-body d-flex flex-column">
+                                <!-- Ürün adı (min-height + istediğiniz satır yüksekliği) -->
+                                <h5 class="card-title mb-2" style="min-height: 40px;">
+                                    @product.Name
+                                </h5>
+
+                                <!-- Yıldızlar + Favori Kalp (tek satır, min-height eklenebilir) -->
+                                <div class="d-flex align-items-center mb-2" style="min-height: 25px;">
+                                    <!-- Örnek yıldızlar -->
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    <i class="far fa-star text-warning me-3"></i>
+                                    <!-- Favori ikonu sağda -->
+                                    <a href="#" class="ms-auto text-danger add-to-favorites">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                </div>
+
+                                <!-- Fiyat (min-height ile hizalama) -->
+                                <p class="fw-bold text-primary mb-2" style="min-height: 20px;">
+                                    @($"{product.Price} ₺")
+                                </p>
+
+                                <!-- Sepete Ekle butonu en alta sabitlemek için mt-auto -->
+                                <div class="mt-auto">
+                                    <a href="#" class="btn btn-success w-100 add-to-cart">
+                                        Sepete Ekle
+                                    </a>
+                                </div>
+
+                            </div>
+                            <!-- /card-body -->
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /SAĞ -->
+    </div>
+</div>
