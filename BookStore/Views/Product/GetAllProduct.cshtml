@@ -1,0 +1,144 @@
+﻿<style>
+    /* Sayfanın sağında ve solunda boşluk bırakmak için container düzenlemesi */
+    .content-container {
+        padding-left: 13.2%;
+        padding-right: 13.2%;
+    }
+
+    /* Buton düzenlemeleri */
+    .btn-primary, .btn-danger, .btn-success {
+        border-radius: 20px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+        /* Buton hover efektleri */
+        .btn-primary:hover {
+            background-color: #007bff;
+            opacity: 0.85;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc3545;
+            opacity: 0.85;
+        }
+
+        .btn-success:hover {
+            background-color: #28a745;
+            opacity: 0.85;
+        }
+
+    /* Tablonun başlıklarına padding eklemek için */
+    th {
+        padding: 15px 20px; /* Üst-alt ve sağ-sol padding ayarları */
+        text-align: left;
+        background-color: #f8f9fa;
+    }
+
+    /* Hücreler için de padding eklemek */
+    td {
+        padding: 10px 20px; /* Hücrelere sağ ve sol boşluk ekleme */
+    }
+
+        /* Sütunlara genişlik eklemek */
+        th:nth-child(1), td:nth-child(1) { /* ID sütunu */
+            width: 5%;
+        }
+
+        th:nth-child(2), td:nth-child(2) { /* İsim sütunu */
+            width: 15%;
+        }
+
+        th:nth-child(3), td:nth-child(3) { /* Fiyat sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(4), td:nth-child(4) { /* Stok sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(5), td:nth-child(5) { /* Açıklama sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(6), td:nth-child(6) { /* Eklenme Tarihi sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(7), td:nth-child(7) { /* Resim sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(8), td:nth-child(8) { /* Kategori sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(9), td:nth-child(9) { /* Yazar sütunu */
+            width: 10%;
+        }
+
+        th:nth-child(10), td:nth-child(10) { /* İşlemler sütunu */
+            width: 15%;
+        }
+</style>
+
+<div class="content-container">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>İsim</th>
+                    <th>Fiyat</th>
+                    <th>Stok</th>
+                    <th>Açıklama</th>
+                    <th>Eklenme Tarihi</th>
+                    <th>Resim</th>
+                    <th>Kategori</th>
+                    <th>Yazar</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>@item.Stock</td>
+
+                        <td>
+                            @if (item.Description.Length > 20)
+                            {
+                                @item.Description.Substring(0, 20)
+                                <text>.....</text>
+                            }
+                            else
+                            {
+                                @item.Description
+                            }
+                        </td>
+
+                        <td>@item.PublishDate.ToString("dd.MM.yyyy")</td>
+
+                        <td>
+                            <!-- ImagePath alanı ile resmi görüntüleme -->
+                            <img src="@Url.Content(item.ImagePath)" alt="Product Image" width="80" height="80" />
+                        </td>
+                        <td>@item.Category.Name</td>
+                        <td>@item.Author.Name</td>
+
+                        <td>
+                            <a asp-controller="product" asp-action="add" class="btn btn-primary">Yeni Ürün Ekle</a>
+
+                            <a asp-controller="product" asp-action="remove" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+
+                            <a asp-controller="product" asp-action="update" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

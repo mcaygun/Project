@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap Tab Örneği</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- SOL SÜTUN (Menü) -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Murat Cemal Aygün</h5>
+                    </div>
+                </div>
+
+                <!-- KULLANICI MENÜSÜ -->
+                <div class="list-group mb-3">
+                    <span class="list-group-item list-group-item-action active">Siparişlerim</span>
+                    <a href="#" class="list-group-item list-group-item-action">Tüm Siparişlerim</a>
+                    <a href="#" class="list-group-item list-group-item-action">Değerlendirmelerim</a>
+                    <a href="#" class="list-group-item list-group-item-action">Satıcı Mesajlarım</a>
+                    <a href="#" class="list-group-item list-group-item-action">Tekrar Satın Al</a>
+                </div>
+
+                <div class="list-group mb-3">
+                    <span class="list-group-item list-group-item-action active">Sana Özel</span>
+                    <a href="#" class="list-group-item list-group-item-action">İndirim Kuponlarım</a>
+                    <a href="#" class="list-group-item list-group-item-action">Önceden Gezdiklerim</a>
+                    <a href="#" class="list-group-item list-group-item-action">Takip Ettiğim Mağazalar</a>
+
+                </div>
+
+                <div class="list-group mb-3">
+                    <span class="list-group-item list-group-item-action active">Hizmetlerim</span>
+                    <a href="#" class="list-group-item list-group-item-action">Krediler</a>
+                    <a href="#" class="list-group-item list-group-item-action">Şanslı Çekiliş</a>
+                    <a href="#" class="list-group-item list-group-item-action">QNB</a>
+                </div>
+
+                <div class="list-group">
+                    <span class="list-group-item list-group-item-action active">Hesabım &amp; Yardım</span>
+                    <a href="#" class="list-group-item list-group-item-action">Kullanıcı Bilgilerim</a>
+                    <a href="#" class="list-group-item list-group-item-action">Adres Bilgilerim</a>
+                    <a href="#" class="list-group-item list-group-item-action">Kayıtlı Kartlarım</a>
+                    <a href="#" class="list-group-item list-group-item-action">Duyuru Tercihlerim</a>
+                </div>
+            </div>
+
+            <!-- SAĞ SÜTUN (İçerik) -->
+            <div class="col-md-9">
+                <h3>Siparişlerim</h3>
+
+                <!-- Sekme Başlıkları -->
+                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active"
+                                id="tum-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#tum"
+                                type="button"
+                                role="tab"
+                                aria-controls="tum"
+                                aria-selected="true">
+                            Tümü
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link"
+                                id="devam-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#devam"
+                                type="button"
+                                role="tab"
+                                aria-controls="devam"
+                                aria-selected="false">
+                            Devam Eden Siparişler
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link"
+                                id="iadeler-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#iadeler"
+                                type="button"
+                                role="tab"
+                                aria-controls="iadeler"
+                                aria-selected="false">
+                            İadeler
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link"
+                                id="iptaller-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#iptaller"
+                                type="button"
+                                role="tab"
+                                aria-controls="iptaller"
+                                aria-selected="false">
+                            İptaller
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Sekme İçerikleri -->
+                <div class="tab-content" id="myTabContent">
+                    <!-- Tümü İçerik -->
+                    <div class="tab-pane fade show active"
+                         id="tum"
+                         role="tabpanel"
+                         aria-labelledby="tum-tab">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Tüm Siparişler</h5>
+                                <p class="card-text">Burada tüm siparişlerinizi listeleyebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Devam Eden Siparişler İçerik -->
+                    <div class="tab-pane fade"
+                         id="devam"
+                         role="tabpanel"
+                         aria-labelledby="devam-tab">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Devam Eden Siparişler</h5>
+                                <p class="card-text">Gönderim süreci devam eden siparişlerinizi burada görüntüleyebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- İadeler İçerik -->
+                    <div class="tab-pane fade"
+                         id="iadeler"
+                         role="tabpanel"
+                         aria-labelledby="iadeler-tab">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">İadeler</h5>
+                                <p class="card-text">İade sürecindeki veya tamamlanmış iadelerinizi burada görüntüleyebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- İptaller İçerik -->
+                    <div class="tab-pane fade"
+                         id="iptaller"
+                         role="tabpanel"
+                         aria-labelledby="iptaller-tab">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">İptaller</h5>
+                                <p class="card-text">İptal edilen siparişlerinizin listesi burada yer alır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Sekme İçerikleri -->
+
+            </div>
+            <!-- /SAĞ SÜTUN (İçerik) -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+    <!-- Bootstrap JS (Popper.js dahil) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

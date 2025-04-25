@@ -1,0 +1,36 @@
+﻿version: '3.8'
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    ports:
+      - '8080:8080'
+      - '8081:8081'
+    depends_on:
+      
+      - category-services
+      - image-services
+      - bookstore
+
+ 
+  category-services:
+    build:
+      context: .
+      dockerfile: CategoryServices/Dockerfile
+    ports:
+      - '5077:80'
+
+  image-services:
+    build:
+      context: .
+      dockerfile: ImageServices/Dockerfile
+    ports:
+      - '5110:80'
+
+  bookstore:
+    build:
+      context: .
+      dockerfile: BookStore/Dockerfile
+    ports:
+      - '5036:80'

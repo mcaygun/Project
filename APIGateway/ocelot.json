@@ -1,0 +1,91 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/books",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "bookstore",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/books",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/categories",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "category-services",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/categories",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/images",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "image-services",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/images",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+}
+
+
+
+//{
+//  "Routes": [
+//    {
+//      "DownstreamPathTemplate": "/api/books",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5036
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/books",
+//      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+//    },
+
+//    {
+//      "DownstreamPathTemplate": "/api/categories",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5077
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/categories",
+//      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/images",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 5110
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/images",
+//      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+//    }
+//  ],
+//  "GlobalConfiguration": {
+//    "BaseUrl": "http://localhost:5000"
+//  }
+//}
