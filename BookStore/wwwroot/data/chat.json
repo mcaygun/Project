@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "Ürün adı: iPhone 15 Pro Max, Kullanıcı sorusu: Bu ürünün garantisi kaç yıl?",
+    "user_response": "Garanti süresi 2 yıldır."
+  },
+  {
+    "prompt": "Ürün adı: MacBook Air M2, Kullanıcı sorusu: İndirim kuponu geçerli mi?",
+    "user_response": "Evet, bazı indirim kuponları geçerlidir."
+  }
+]

@@ -65,9 +65,13 @@
                     <a href="#" class="list-group-item list-group-item-action">
                         <i class="fas fa-users me-2"></i> Kullanıcılar
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-box me-2"></i> Ürünler
+                    <a href="@Url.Action("Add", "Product")" class="list-group-item list-group-item-action">
+                        <i class="fas fa-plus me-2"></i> Ürün Ekleme
                     </a>
+                    <a href="@Url.Action("GetAllProduct", "Product")" class="list-group-item list-group-item-action">
+                        <i class="fas fa-edit me-2"></i> Ürün Düzenleme
+                    </a>
+
                     <a href="#" class="list-group-item list-group-item-action">
                         <i class="fas fa-chart-bar me-2"></i> Raporlar
                     </a>
@@ -129,7 +133,7 @@
                     <div class="col-lg-6 mb-4">
                         <div class="card shadow-sm border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Worldwide Sales</h5>
+                                <h5 class="card-title">Yıllara Göre Satış</h5>
                                 <canvas id="worldwideSalesChart"></canvas>
                             </div>
                         </div>
@@ -138,7 +142,7 @@
                     <div class="col-lg-6 mb-4">
                         <div class="card shadow-sm border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Sales &amp; Revenue</h5>
+                                <h5 class="card-title">Satış &amp; Ciro</h5>
                                 <canvas id="salesRevenueChart"></canvas>
                             </div>
                         </div>

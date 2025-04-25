@@ -1,0 +1,12 @@
+# Visual Studio tarafından oluşturulan geçici klasör ve dosyalar
+.vs/
+*.user
+*.suo
+*.vsidx
+
+# Derleme çıktıları
+bin/
+obj/
+
+# Diğer
+*.log

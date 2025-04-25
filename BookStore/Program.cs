@@ -8,14 +8,18 @@ using NToastNotify;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions()
+builder.Services.AddControllersWithViews().AddNToastNotifyToastr(new ToastrOptions
 {
     PositionClass = ToastPositions.TopRight,
     TimeOut = 5000,
 });
 
+// Mevcut extension metotlarýnýz
 builder.Services.LoadDataLayerExtension(builder.Configuration);
 builder.Services.LoadServiceLayerExtension();
+
+// Burada HttpClientFactory'i ekliyoruz
+builder.Services.AddHttpClient();
 
 builder.Services.AddIdentity<AppUser, AppRole>(opt =>
 {
@@ -24,9 +28,9 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
     opt.Password.RequireLowercase = false;
     opt.Password.RequireUppercase = false;
 })
-    .AddRoleManager<RoleManager<AppRole>>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+.AddRoleManager<RoleManager<AppRole>>()
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -34,7 +38,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -46,7 +49,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+// Rotasyon iþlemleri
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

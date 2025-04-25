@@ -53,7 +53,7 @@
                         <button type="submit" class="btn btn-outline-primary w-100 py-2 mb-2">
                             Filtrele
                         </button>
-                        <button asp-controller="Product" asp-action="add"
+                     @*   <button asp-controller="Product" asp-action="add"
                                 type="submit"
                                 class="btn btn-outline-primary w-100 py-2 mb-2">
                             Ürün Ekleme
@@ -63,6 +63,8 @@
                                 class="btn btn-outline-primary w-100 py-2">
                             Ürün Düzenleme
                         </button>
+
+                        *@
                     </form>
                 </div>
             </div>
@@ -74,52 +76,49 @@
                 @foreach (var product in Model.Products.Take(100))
                 {
                     <div class="col-md-3 mb-4">
-                        <!-- Kart: Yükseklik doldurmak için flex-column ve h-100 -->
                         <div class="card h-100 d-flex flex-column shadow-sm">
-                            <!-- Ürün görseli (sabit yüksekliğe alınırsa hizalama kolaylaşır) -->
-                            <img src="@product.ImagePath"
-                                 alt="Ürün Resmi"
-                                 class="card-img-top"
-                                 style="height: 200px; object-fit: cover;">
+                            <!-- Görseli tıklanabilir yap -->
+                            <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.Id">
+                                <img src="@product.ImagePath"
+                                     alt="Ürün Resmi"
+                                     class="card-img-top"
+                                     style="height: 200px; object-fit: cover;">
+                            </a>
 
-                            <!-- Kart gövdesi: yine flex-column -->
                             <div class="card-body d-flex flex-column">
-                                <!-- Ürün adı (min-height + istediğiniz satır yüksekliği) -->
+                                <!-- Ürün adı da tıklanabilir olsun -->
                                 <h5 class="card-title mb-2" style="min-height: 40px;">
-                                    @product.Name
+                                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@product.Id">
+                                        @product.Name
+                                    </a>
                                 </h5>
 
                                 <!-- Yıldızlar + Favori Kalp (tek satır, min-height eklenebilir) -->
                                 <div class="d-flex align-items-center mb-2" style="min-height: 25px;">
-                                    <!-- Örnek yıldızlar -->
                                     <i class="fas fa-star text-warning me-1"></i>
                                     <i class="fas fa-star text-warning me-1"></i>
                                     <i class="fas fa-star text-warning me-1"></i>
                                     <i class="fas fa-star text-warning me-1"></i>
                                     <i class="far fa-star text-warning me-3"></i>
-                                    <!-- Favori ikonu sağda -->
                                     <a href="#" class="ms-auto text-danger add-to-favorites">
                                         <i class="far fa-heart"></i>
                                     </a>
                                 </div>
 
-                                <!-- Fiyat (min-height ile hizalama) -->
                                 <p class="fw-bold text-primary mb-2" style="min-height: 20px;">
                                     @($"{product.Price} ₺")
                                 </p>
 
-                                <!-- Sepete Ekle butonu en alta sabitlemek için mt-auto -->
                                 <div class="mt-auto">
                                     <a href="#" class="btn btn-success w-100 add-to-cart">
                                         Sepete Ekle
                                     </a>
                                 </div>
-
                             </div>
-                            <!-- /card-body -->
                         </div>
                     </div>
                 }
+
             </div>
         </div>
         <!-- /SAĞ -->

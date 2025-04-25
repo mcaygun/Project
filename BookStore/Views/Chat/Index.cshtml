@@ -1,0 +1,25 @@
+﻿<input type="text" id="messageInput" />
+<button onclick="sendMessage()">Gönder</button>
+<ul id="messagesList"></ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+<script>
+    var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        var li = document.createElement("li");
+        li.textContent = user + ": " + message;
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    function sendMessage() {
+        var message = document.getElementById("messageInput").value;
+        connection.invoke("SendMessage", "Kullanıcı", message).catch(function (err) {
+            return console.error(err.toString());
+        });
+    }
+</script>
