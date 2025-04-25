@@ -25,8 +25,7 @@ namespace BookStore.Controllers
         [HttpPost("SendMessage")]
         public async Task<IActionResult> SendMessage([FromBody] ChatRequest request)
         {
-            var openAiApiKey = "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";  // Buraya kendi API anahtarınızı koyun.
-            var url = "https://api.openai.com/v1/chat/completions";
+           
 
             // Kullanıcıdan gelen mesaj
             var userMessage = request.Message ?? string.Empty;
